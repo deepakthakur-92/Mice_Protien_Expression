@@ -71,3 +71,100 @@ class Raw_Data_Validation:
             self.logger.log(file, str(e))
             file.close()
             raise e
+
+        return LengthOfDateStampInFile, LengthOfTimeStampInFile, column_names, NumberofColumns
+
+
+    def manualRegexCreation(self):
+
+        """
+                Method Name: maualRegexCreation
+                Description: This method contains a manually defined regex based on the "FileName" given in "schema" file.
+                             This regex is used to validate the filename of the training data.
+                Output: Regex pattern
+                On Failure: None
+
+                written by: Deepak Thakur
+                Version: 1.0
+
+        """
+
+        regex = "['Mice_Protein_Expression']+['\_''] +[\d_]+[\d]+\.csv"
+        return regex
+
+
+    def createDirectoryForGoodAndBadRawData(self):
+
+        """
+                Method Name: createDirectoryForGoodAndBadRawData
+                Description: This method created directories to store the Good and Bad Data after validating the training data.
+                Output: None
+                On Failure: OSError
+
+                written By: Deepak Thakur
+                Version: 1.0
+
+        """
+        try:
+            path = os.path.join("Training_Raw_Data_Files_Validated/", "Good_Data/")
+            if not os.path.isdir(path):
+                os.makedirs(path)
+            path = os.path.join("Training_Raw_Data_Files_Validated/", "Bad_Data/")
+            if not os.path.isdir(path):
+                os.makedirs(path)
+
+        except OSError as ex:
+            file = open("Training_Logs/GeneralLog.txt", 'a+')
+            self.logger.log(file, "Error while creating Directory %s:" % ex)
+            file.close()
+            raise OSError
+
+
+    def deleteExistingGoodDataTrainingFolder(self):
+
+        """
+
+                Method Name: deleteExistingGoodRawDataTrainingFolder
+                Description: This method deletes the directory made to store the Good Raw Data after loading the data
+                             in the table. Once the good files are loaded in the DB, deleting the directory ensures
+                             space optimization.
+                Output: None
+                On Failure: OSError
+
+                Written By: Deepak Thakur
+                Version: 1.0
+
+            """
+
+        try:
+            path = 'Training_Raw_Data_Files_Validated/'
+            if os.path.isdor(path +'Good_Raw_Data'):
+                shutil.rmtree(path + 'Good_Raw_Data')
+                file = open("Training_Logs/GeneralLog.txt", 'a+')
+                self.logger.log(file, "Good Raw Data Directory deleted successfully!!!")
+                file.close()
+        except OSError as s:
+            file = open("Training_Logs/GeneralLog.txt", 'a+')
+            self.logger.log(file, "Error while Deleting Directory : %s" %s)
+            file.close()
+            raise OSError
+
+
+    def deleteExistingBadDataTrainingFolder(self):
+
+        """
+                Method Name: deleteExistingBadDataTrainingFolder
+                Description: This method deletes the directory made to store the bad Data.
+                Output: None
+                On Failure: OSError
+
+                written by: Deepak Thakur
+                Version: 1.0
+
+        """
+
+        try:
+            path = 'Training_Raw_Data_Files_Validated'
+
+
+
