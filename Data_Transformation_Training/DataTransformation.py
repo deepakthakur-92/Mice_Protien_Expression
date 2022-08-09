@@ -3,7 +3,7 @@ import pandas as pd
 from app_Logging.logger import App_Logger
 
 
-class datatransform:
+class DataTransform:
 
     """
             This class shall be used for transforming the Good Raw Data Training Data before loading it in Database!!.
@@ -15,7 +15,7 @@ class datatransform:
 
     def __init__(self):
         self.goodDataPath = "Training_raw_Data_Files_Validated/Good_Data"
-        slef.logger = App_Logger()
+        self.logger = App_Logger()
 
 
     def replaceMissingWithNull(self):
@@ -33,7 +33,7 @@ class datatransform:
 
         """
 
-        log_file = open("Training_Logs/dataTransformingLog.txt".'a+')
+        log_file = open("Training_Logs/dataTransformingLog.txt", 'a+')
         try:
             onlyfiles = [f for f in listdir(self.goodDataPath)]
             for file in onlyfiles:
