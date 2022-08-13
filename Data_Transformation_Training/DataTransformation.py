@@ -33,7 +33,7 @@ class DataTransform:
 
         """
 
-        log_file = open("Training_Logs/dataTransformingLog.txt", 'a+')
+        log_file = open("Training_Logs/dataTransformLog.txt", 'a+')
         try:
             onlyfiles = [f for f in listdir(self.goodDataPath)]
             for file in onlyfiles:
