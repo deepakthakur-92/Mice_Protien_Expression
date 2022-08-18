@@ -1,27 +1,27 @@
-from Training_Raw_data_validation.rawDataValidation import Raw_Data_Validation
-from DataTypeValidation_Insertion_Training.DataTypeValidation import DBOperation
-from Data_Transformation_Training.DataTransformation import DataTransform
+from Prediction_Raw_data_validation.predictionDataValidation import Prediction_Data_Validation
+from DataTypeValidation_Insertion_Prediction.DataTypeValidationPrediction import DBOperation
+from Data_Transformation_Prediction.DataTransformationPrediction import DataTransformPredict
 from app_Logging import logger
 
 class train_validation:
     def __init__(self,path):
-        self.raw_data = Raw_Data_Validation(path)
-        self.dataTransform = DataTransform()
+        self.raw_data = Prediction_Data_Validation(path)
+        self.dataTransform = DataTransformPredict()
         self.dbOperation = DBOperation()
-        self.dbOperation.createDatabaseForTraining('training_dataset')
-        self.file_object = open('Training_Logs/Training_Main_Log.txt','a+')
+        self.dbOperation.createDatabaseForTraining('prediction_dataset')
+        self.file_object = open('Prediction_Logs/Prediction_Main_Log.txt','a+')
         self.log_writer = logger.App_Logger()
 
 
-    def train_validation(self):
+    def prediction_validation(self):
 
         try:
             self.log_writer.log(self.file_object,'Start of Validation on files!!')
-            # extracting values from training schema
+            # extracting values from prediction schema
             LengthOfDateStampInFile, LengthOfTimeStampInFile, column_names, noofcolumns = self.raw_data.valuesFromSchema()
             # getting the regex defined to validate filename
             regex = self.raw_data.manualRegexCreation()
-            # validating filename of training files
+            # validating filename of prediction files
             self.raw_data.validationFileNameRaw(regex, LengthOfDateStampInFile, LengthOfTimeStampInFile)
             # validating column length in the file
             self.raw_data.validateColumnLength(noofcolumns)
