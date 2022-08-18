@@ -71,10 +71,10 @@ class trainModel:
 
                 # splitting the data into training and test set for each cluster one by one
                 x_train, x_test, y_train, y_test = train_test_split(cluster_features, cluster_label, test_size=1/3, random_state=355)
-                model_finder = model_finder.Model_Finder(self.file_object, self.log_writer) # object initialization
+                modelfinder = model_finder.Model_Finder(self.file_object, self.log_writer) # object initialization
 
                 # getting  the best model for each of the clusters
-                best_model_name, best_model = model_finder.get_best_model(x_train,y_train, x_test, y_test)
+                best_model_name, best_model = modelfinder.get_best_model(x_train,y_train, x_test, y_test)
 
                 # saving the best model to the directory.
                 file_op = file_methods.File_Operation(self.file_object,self.log_writer)
