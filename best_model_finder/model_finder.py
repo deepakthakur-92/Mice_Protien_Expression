@@ -1,5 +1,5 @@
-from sklearn.ensemble import RandomForestClassifer
-from xgboost import XGBClassifer
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import roc_auc_score, accuracy_score
 
