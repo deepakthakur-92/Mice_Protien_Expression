@@ -3,7 +3,7 @@ from DataTypeValidation_Insertion_Prediction.DataTypeValidationPrediction import
 from Data_Transformation_Prediction.DataTransformationPrediction import DataTransformPredict
 from app_Logging import logger
 
-class train_validation:
+class pred_validation:
     def __init__(self,path):
         self.raw_data = Prediction_Data_Validation(path)
         self.dataTransform = DataTransformPredict()
