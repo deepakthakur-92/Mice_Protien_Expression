@@ -2,7 +2,7 @@
   "SampleFileName" : "Mice_Protein_Expression_20220805_034702.csv",
   "LengthOfDateStampInFile" : 8,
   "LengthOfTimeStampInFile" : 6,
-  "NumberofColumns" : 82,
+  "NumberofColumns" : 81,
   "ColName" : {
         "MouseID" :  "text",
         "DYRK1A_N" : "float",
@@ -85,6 +85,6 @@
         "Genotype" : "text",
         "Treatment" : "text",
         "Behavior" : "text",
-        "class" : "text"
+
   }
 }

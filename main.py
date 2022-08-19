@@ -48,7 +48,7 @@ def predictRouteClient():
 
 
 
-@app.route("/train", method=['=POST'])
+@app.route("/train", methods=['=POST'])
 @cross_origin()
 def trainRouteClient():
 
