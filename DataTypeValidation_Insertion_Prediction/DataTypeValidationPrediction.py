@@ -36,7 +36,7 @@ class DBOperation:
 
         try:
             conn = connection.connect(host="localhost", user="root", passwd="root", use_pure=True)
-            query = f'CREATE DATABASE IF NOT EXISTS{DatabaseName}'
+            query = f'CREATE DATABASE IF NOT EXISTS {DatabaseName}'
             cursor = conn.cursor()
             cursor.execute(query)
             conn.close()
