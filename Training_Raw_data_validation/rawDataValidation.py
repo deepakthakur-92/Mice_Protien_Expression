@@ -138,8 +138,8 @@ class Raw_Data_Validation:
 
         try:
             path = 'Training_Raw_Data_Files_Validated/'
-            if os.path.isdir(path +'Good_Raw_Data'):
-                shutil.rmtree(path + 'Good_Raw_Data')
+            if os.path.isdir(path +'Good_Data'):
+                shutil.rmtree(path + 'Good_Data')
                 file = open("Training_Logs/GeneralLog.txt", 'a+')
                 self.logger.log(file, "Good Raw Data Directory deleted successfully!!!")
                 file.close()
@@ -253,8 +253,8 @@ class Raw_Data_Validation:
                 if(re.match(regex, filename)):
                     splitAtDot = resplit('.csv', filename)
                     splitAtDot = (re.split('_',splitAtDot[0]))
-                    if len(splitAtDot[1]) == LenghtOfDateStampInFile:
-                        if len(splitAtDot[2]) == LengthOfTimeStampInFile:
+                    if len(splitAtDot[3]) == LenghtOfDateStampInFile:
+                        if len(splitAtDot[4]) == LengthOfTimeStampInFile:
                             shutil.copy("Training_Batch_File/" + filename, "Training_Raw_Data_Files_Validated/Good_Data")
                             self.logger.log(f,"Valid File name!! File moved to GoodData Folder :: %s" % filename)
 
