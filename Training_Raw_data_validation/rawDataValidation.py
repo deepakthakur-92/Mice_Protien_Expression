@@ -259,14 +259,14 @@ class Raw_Data_Validation:
                             self.logger.log(f,"Valid File name!! File moved to GoodData Folder :: %s" % filename)
 
                         else:
-                            shutil.copy("Training_Batch_Files/" +filename, "Training_Raw_Data_files_Validated/Bad_Data")
+                            shutil.copy("Training_Batch_File/" +filename, "Training_Raw_Data_files_Validated/Bad_Data")
                             self.logger.log(f,"Invalid File name!! File moved to Bad Data Folder :: %s" % filename)
 
                     else:
-                        shutil.copy("Training_Batch_Files/" + filename, "Training_Raw_Data_files_Validated/Bad_Data")
+                        shutil.copy("Training_Batch_File/" + filename, "Training_Raw_Data_files_Validated/Bad_Data")
                         self.logger.log(f, "Invalid File name!! File moved to Bad Data Folder :: %s" % filename)
                 else:
-                    shutil.copy("Training_Batch_Files/" + filename, "Training_Raw_Data_files_Validated/Bad_Data")
+                    shutil.copy("Training_Batch_File/" + filename, "Training_Raw_Data_files_Validated/Bad_Data")
                     self.logger.log(f, "Invalid File name!! File moved to Bad Data Folder :: %s" % filename)
 
             f.close()
