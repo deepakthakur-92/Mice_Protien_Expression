@@ -165,7 +165,7 @@ class Preprocessor:
             if not os.path.isdir(encoder_folder):
                 os.mkdir(encoder_folder)
             with open(encoder_folder+'enc.pickle','wb') as file:
-                pickle.dump(encode, file)
+                pickle.dump(self.encode, file)
 
             return self.data
 
