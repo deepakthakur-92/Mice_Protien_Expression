@@ -139,8 +139,8 @@ class Prediction_Data_Validation:
 
         try:
             path = 'Prediction_Raw_Data_Files_Validated/'
-            if os.path.isdir(path +'Good_Raw_Data'):
-                shutil.rmtree(path + 'Good_Raw_Data')
+            if os.path.isdir(path +'Good_Data'):
+                shutil.rmtree(path + 'Good_Data')
                 file = open("Prediction_Logs/GeneralLog.txt", 'a+')
                 self.logger.log(file, "Good Raw Data Directory deleted successfully!!!")
                 file.close()
@@ -252,19 +252,19 @@ class Prediction_Data_Validation:
             f = open("Prediction_Logs/nameValidationLog.txt",'a+')
             for filename in onlyfiles:
                 if(re.match(regex, filename)):
-                    splitAtDot = resplit('.csv', filename)
+                    splitAtDot = re.split('.csv', filename)
                     splitAtDot = (re.split('_',splitAtDot[0]))
                     if len(splitAtDot[1]) == LenghtOfDateStampInFile:
                         if len(splitAtDot[2]) == LengthOfTimeStampInFile:
-                            shutil.copy("Prediction_Batch_File/" + filename, "Prediction_Raw_Data_Files_Validated/Good_Data")
+                            shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Data_Files_Validated/Good_Data")
                             self.logger.log(f,"Valid File name!! File moved to GoodData Folder :: %s" % filename)
 
                         else:
-                            shutil.copy("Prediction_Batch_Files/" +filename, "Prediction_Raw_Data_files_Validated/Bad_Data")
+                            shutil.copy("Prediction_Batch_files/" +filename, "Prediction_Raw_Data_files_Validated/Bad_Data")
                             self.logger.log(f,"Invalid File name!! File moved to Bad Data Folder :: %s" % filename)
 
                     else:
-                        shutil.copy("Prediction_Batch_Files/" + filename, "Prediction_Raw_Data_files_Validated/Bad_Data")
+                        shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Data_files_Validated/Bad_Data")
                         self.logger.log(f, "Invalid File name!! File moved to Bad Data Folder :: %s" % filename)
                 else:
                     shutil.copy("Prediction_Batch_Files/" + filename, "Prediction_Raw_Data_files_Validated/Bad_Data")
