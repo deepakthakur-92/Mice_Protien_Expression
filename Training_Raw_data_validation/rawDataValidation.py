@@ -251,7 +251,7 @@ class Raw_Data_Validation:
             f = open("Training_Logs/nameValidationLog.txt",'a+')
             for filename in onlyfiles:
                 if(re.match(regex, filename)):
-                    splitAtDot = resplit('.csv', filename)
+                    splitAtDot = re.split('.csv', filename)
                     splitAtDot = (re.split('_',splitAtDot[0]))
                     if len(splitAtDot[3]) == LenghtOfDateStampInFile:
                         if len(splitAtDot[4]) == LengthOfTimeStampInFile:
