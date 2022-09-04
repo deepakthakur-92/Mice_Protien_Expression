@@ -29,7 +29,8 @@ link: https://archive.ics.uci.edu/ml/datasets/Mice+Protein+Expression
 # Database
 MYSQL database has been used to store training, prediction dataset and for logging
 
-# Requirements
+# Installation
+## :hammer_and_wrench: Requirements
 - python 3.x
 - Flask
 - pandas
