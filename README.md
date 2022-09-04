@@ -24,7 +24,7 @@ link: https://archive.ics.uci.edu/ml/datasets/Mice+Protein+Expression
 
 
 # Documents
-![Architecture/LLD/HLD][https://drive.google.com/drive/folders/1bN_1kdMB6YZK-4jB6hRMQyoCZR3ufYpJ]
+[Architecture/LLD/HLD](https://drive.google.com/drive/folders/1bN_1kdMB6YZK-4jB6hRMQyoCZR3ufYpJ)
 
 # Database
 MYSQL database has been used to store training, prediction dataset and for logging
