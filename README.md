@@ -21,6 +21,7 @@ in the dataset. Each measurement can be thought of as a separate sample/mouse.
 link: https://archive.ics.uci.edu/ml/datasets/Mice+Protein+Expression
 
 # Project Demo
+[link](https://www.youtube.com/watch?v=BdcBIAsjWZs)
 
 
 # Documents
